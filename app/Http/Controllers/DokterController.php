@@ -140,4 +140,10 @@ class DokterController extends Controller
         $data = Dokter::get();
         return view('adminpage.dokter.index', compact('data'));
     }
+
+    public function tampillanding()
+    {
+        $data = Dokter::get();
+        return view('landingpage.dokter.index', compact('data'));
+    }
 }

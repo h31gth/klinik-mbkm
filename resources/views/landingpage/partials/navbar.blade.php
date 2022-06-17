@@ -10,7 +10,8 @@
             <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="#about">Tentang Kami</a></li>
             <li class="nav-item px-2"><a class="nav-link" href="#departments">Pendaftaran</a></li>
             <li class="nav-item px-2"><a class="nav-link" href="#findUs">Jadwal Dokter</a></li>
-            <li class="nav-item px-2"><a class="nav-link" href="{{ url('dokter') }}">Dokter </a></li>
+            <li class="nav-item px-2"><a class="nav-link" href="{{ url('/dokter') }}">Dokter </a></li>
+            <li class="nav-item px-2"><a class="nav-link" href="{{ url('poliklinik/') }}">Poliklinik </a></li>
             <li class="nav-item px-2"><a class="nav-link" href="#findUs">Kontak</a></li>
           </ul>
           <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{{ url('login') }}">Login</a>

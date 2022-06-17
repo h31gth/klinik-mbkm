@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DokterController;
+use App\Http\Controllers\PoliklinikController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +32,9 @@ Route::get('/register', function () {
 });
 
 Route::resource('/adminpage/dokter', DokterController::class);
+
+Route::get('/dokter', [DokterController::class, 'tampillanding']);
+
+Route::resource('/poliklinik', PoliklinikController::class);
+
+Route::get('/poliklinik/{poliklinik:id}', [PoliklinikController::class, 'tampildokter']);

@@ -21,6 +21,7 @@ class CreateTableDokter extends Migration
             $table->text('alamat');
             $table->text('jk');
             $table->string('image');
+            $table->foreignId('poliklinik_id');
         });
     }
 

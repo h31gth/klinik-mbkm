@@ -2,26 +2,24 @@
 
 namespace App\Models;
 
-use App\Models\Poliklinik;
+use App\Models\Dokter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dokter extends Model
+class Poliklinik extends Model
 {
     use HasFactory;
 
-    protected $table = 'table_dokter';
+    protected $table = 'table_poliklinik';
 
     protected $fillable = [
         'name',
-        'alamat',
-        'HP',
-        'jk',
+        'keterangan',
         'image'
     ];
 
-    public function poliklinik()
+    public function dokter()
     {
-        return $this->belongsTo(Poliklinik::class);
+        return $this->hasMany(Dokter::class);
     }
 }
