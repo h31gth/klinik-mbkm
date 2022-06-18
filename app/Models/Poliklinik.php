@@ -13,9 +13,9 @@ class Poliklinik extends Model
     protected $table = 'table_poliklinik';
 
     protected $fillable = [
-        'name',
+        'poli',
         'keterangan',
-        'image'
+        'poli_image'
     ];
 
     public function dokter()

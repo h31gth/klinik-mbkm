@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Poliklinik;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PoliklinikController extends Controller
 {
@@ -14,8 +15,8 @@ class PoliklinikController extends Controller
      */
     public function index()
     {
-        $data = Poliklinik::get();
-        return view('landingpage.poliklinik', compact('data'));
+        $data = Poliklinik::orderBy('id', 'desc')->get();
+        return view('adminpage.poliklinik.index', compact('data'));
     }
 
     /**
@@ -25,7 +26,7 @@ class PoliklinikController extends Controller
      */
     public function create()
     {
-        //
+        return view('adminpage.poliklinik.create');
     }
 
     /**
@@ -36,7 +37,20 @@ class PoliklinikController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $poli = $request->poli;
+        $keterangan = $request->keterangan;
+        $image = $request->file('poli_image');
+        $nama_photo = date('YmdHis') . $image->getClientOriginalName();
+        $image->move('images/poliklinik', $nama_photo);
+        $photo = 'images/poliklinik/' . $nama_photo;
+
+        Poliklinik::create([
+            'poli' => $poli,
+            'keterangan' => $keterangan,
+            'poli_image' => $photo
+        ]);
+
+        return redirect('adminpage/poliklinik')->with('message', 'Data Berhasil Di Tambahkan');
     }
 
     /**
@@ -58,7 +72,8 @@ class PoliklinikController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Poliklinik::findOrFail($id);
+        return view('adminpage.poliklinik.edit', compact('data'));
     }
 
     /**
@@ -70,7 +85,30 @@ class PoliklinikController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $poliklinik = Poliklinik::findOrFail($id);
+        $poli = $request->poli;
+        $keterangan = $request->keterangan;
+        $image = $request->file('poli_image');
+
+        if ($image == "") {
+            $poliklinik->update([
+                'poli' => $poli,
+                'keterangan' => $keterangan,
+            ]);
+            return redirect('adminpage/poliklinik')->with('message', 'Data Berhasil Di Update');
+        } else {
+            File::delete(public_path($poliklinik->image));
+            $nama_photo = date('YmdHis') . $image->getClientOriginalName();
+            $image->move('images/poliklinik', $nama_photo);
+            $photo = 'images/poliklinik/' . $nama_photo;
+
+            $poliklinik->update([
+                'poli' => $poli,
+                'keterangan' => $keterangan,
+                'poli_image' => $photo
+            ]);
+            return redirect('adminpage/poliklinik')->with('message', 'Data Berhasil Di Update');
+        }
     }
 
     /**
@@ -81,7 +119,16 @@ class PoliklinikController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Poliklinik::findOrFail($id);
+        File::delete(public_path($data->poli_image));
+        $data->delete();
+        return redirect('adminpage/poliklinik')->with('message', 'Data Berhasil Di Hapus');
+    }
+
+    public function tampil()
+    {
+        $data = Poliklinik::get();
+        return view('adminpage.poliklinik.index', compact('data'));
     }
 
     public function tampildokter(Poliklinik $poliklinik)
@@ -92,5 +139,11 @@ class PoliklinikController extends Controller
                 'data' => $poliklinik->dokter
             ]
         );
+    }
+
+    public function tampillanding()
+    {
+        $data = Poliklinik::get();
+        return view('landingpage.poliklinik', compact('data'));
     }
 }

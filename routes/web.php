@@ -35,6 +35,8 @@ Route::resource('/adminpage/dokter', DokterController::class);
 
 Route::get('/dokter', [DokterController::class, 'tampillanding']);
 
-Route::resource('/poliklinik', PoliklinikController::class);
+Route::resource('/adminpage/poliklinik', PoliklinikController::class);
+
+Route::get('/poliklinik', [PoliklinikController::class, 'tampillanding']);
 
 Route::get('/poliklinik/{poliklinik:id}', [PoliklinikController::class, 'tampildokter']);

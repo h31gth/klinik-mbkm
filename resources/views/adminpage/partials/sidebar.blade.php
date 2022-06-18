@@ -28,17 +28,12 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Master Data
+        Poliklinik
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Pasien</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+    <li class="nav-item {{ Request::is('adminpage/poliklinik*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ url('adminpage/poliklinik') }}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Poliklinik</span></a>
     </li>
