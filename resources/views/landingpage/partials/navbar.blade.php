@@ -9,7 +9,7 @@
           <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
             <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="#about">Tentang Kami</a></li>
             <li class="nav-item px-2"><a class="nav-link" href="#departments">Pendaftaran</a></li>
-            <li class="nav-item px-2"><a class="nav-link" href="#findUs">Jadwal Dokter</a></li>
+            <li class="nav-item px-2"><a class="nav-link" href="{{ url('jadwal_dokter') }}">Jadwal Dokter</a></li>
             <li class="nav-item px-2"><a class="nav-link" href="{{ url('dokter') }}">Dokter </a></li>
             <li class="nav-item px-2"><a class="nav-link" href="#findUs">Kontak</a></li>
           </ul>

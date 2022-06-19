@@ -31,3 +31,5 @@ Route::get('/register', function () {
 });
 
 Route::resource('/adminpage/dokter', DokterController::class);
+Route::resource('/adminpage/jadwal_dokter', JadwalController::class);
+
