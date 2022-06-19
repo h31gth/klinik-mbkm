@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\DokterController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController; 
+use App\Http\Controllers\JadwalDokterController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +33,14 @@ Route::get('/register', function () {
 });
 
 Route::resource('/adminpage/dokter', DokterController::class);
-Route::resource('/adminpage/jadwal_dokter', JadwalController::class);
 
+Route::resource('/adminpage/jadwal_dokter', JadwalDokterController::class);
+
+Route::get('/dokter', [DokterController::class, 'tampillanding']);
+
+Route::get('/jadwal_dokter', [JadwalDokterController::class, 'tampiljadwaldokter']);
+
+
+Route::post('/adminpage/kontak', [ContactController::class, 'storeContactForm'])->name('contact-form.store');
+
+Route::get('/kontak', [ContactController::class, 'contactForm'])->name('contact-form'); 
