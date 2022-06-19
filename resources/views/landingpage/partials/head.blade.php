@@ -29,6 +29,7 @@
   <!--    Stylesheets-->
   <!-- ===============================================-->
   <link href="{!! asset('assets/css/theme.css') !!}" rel="stylesheet" />
+  <link href="{!! asset('css/main.css') !!}" rel="stylesheet" />
 </head>
 
 

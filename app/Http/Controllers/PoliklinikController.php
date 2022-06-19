@@ -136,7 +136,9 @@ class PoliklinikController extends Controller
         return view(
             'landingpage.poliklinik.konten',
             [
-                'data' => $poliklinik->dokter
+                'data' => $poliklinik->dokter,
+                'keterangan' => $poliklinik->keterangan,
+                'poli_image' => $poliklinik->poli_image
             ]
         );
     }

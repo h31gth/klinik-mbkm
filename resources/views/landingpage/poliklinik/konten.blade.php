@@ -1,5 +1,21 @@
 @extends('landingpage.poliklinik')
 @section('content')
+<section class="bg-secondary">
+  <div class="bg-holder" style="background-image:url({{ url($) }});background-position:center;background-size:contain;">
+  </div>
+  <!--/.bg-holder-->
+
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-5 col-xxl-6"><img class="img-fluid" src="assets/img/gallery/eye-care.png" alt="..." /></div>
+      <div class="col-md-7 col-xxl-6 text-center text-md-start">
+        <h2 class="fw-bold text-light mb-4 mt-4 mt-lg-0">Eye Care with Top Professionals<br class="d-none d-sm-block" />and In Budget.</h2>
+        <p class="text-light">We've built a healthcare system that puts your needs first.<br class="d-none d-sm-block" />For us, there is nothing more important than the health of <br class="d-none d-sm-block" />you and your loved ones. </p>
+        <div class="py-3"><a class="btn btn-lg btn-light rounded-pill" href="#!" role="button">Learn more </a></div>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="py-5">
     <div class="bg-holder bg-size" style="background-image:url({!! asset('assets/img/gallery/doctors-bg.png') !!});background-position:top center;background-size:contain;">
     </div>
