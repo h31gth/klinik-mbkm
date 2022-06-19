@@ -16,7 +16,8 @@ class CreateTableJadwalDokter extends Migration
         Schema::create('table_jadwal_dokter', function (Blueprint $table) {
             $table->id();
             $table->string('waktu');
-            $table->
+            $table->foreignId('id_dokter')->references('id')->on('table_dokter');
+            $table->foreignId('id_poliklinik')->references('id')->on('table_poliklinik');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Jadwal_dokter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,4 +19,10 @@ class Dokter extends Model
         'jk',
         'image'
     ];
+
+    public function jadwal_dokter()
+    {
+        return $this->hasMany(Jadwal_dokter::class);
+    }
+
 }

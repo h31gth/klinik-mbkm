@@ -59,26 +59,26 @@
     </li>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item {{ Request::is('adminpage/jadwal_dokter*') }}">
-        <a class="nav-link" href="{{ url('adminpage/dokter') }}">
+    <li class="nav-item {{ Request::is('adminpage/jadwal_dokter*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ url('adminpage/jadwal_dokter') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Jadwal Dokter</span></a>
     </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider">
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Pengaturan
-        </div>
-    
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>User</span></a>
-        </li>
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Pengaturan
+    </div>
+
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>User</span></a>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
