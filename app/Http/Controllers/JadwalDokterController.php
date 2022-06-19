@@ -93,14 +93,9 @@ class JadwalDokterController extends Controller
         return view('adminpage.jadwal_dokter.index', compact('data'));
     }
 
-    public function tampiljadwaldokter(Jadwal_dokter $jadwal_dokter)
+    public function tampiljadwaldokter()
     {
-        return view(
-            'landingpage.jadwal_dokter.index',
-            [
-                'data' => $jadwal_dokter->id_dokter,
-                'waktu' => $jadwal_dokter->waktu
-            ]
-        );
+        $data = Jadwal_dokter::get();
+        return view('landingpage.jadwal_dokter.index', compact('data'));
     }
 }

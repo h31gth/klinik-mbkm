@@ -36,7 +36,7 @@ class ContactController extends Controller
         ), function($message) use ($request){ 
 
             $message->from($request->email); 
-            $message->to('akungenshinbaru003@gmail.com', 'Admin')->subject($request->get('subject')); 
+            $message->to('admin@gmail.com', 'Admin')->subject($request->get('subject')); 
 
         }); 
 
