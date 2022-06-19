@@ -1,27 +1,6 @@
-@extends('landingpage.layouts.main')
-
-@section('index')
-<section class="pb-0">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-12 py-3">
-          <div class="bg-holder bg-size" style="background-image:url({!! asset('assets/img/gallery/doctors-us.png') !!});background-position:top center;background-size:contain;">
-          </div>
-          <!--/.bg-holder-->
-
-          <h1 class="text-center">Dokter</h1>
-        </div>
-      </div>
-    </div>
-    <!-- end of .container-->
-
-  </section>
-  <!-- <section> close ============================-->
-  <!-- ============================================-->
-
-
-  <section class="py-5">
+@extends('landingpage.poliklinik')
+@section('content')
+<section class="py-5">
     <div class="bg-holder bg-size" style="background-image:url({!! asset('assets/img/gallery/doctors-bg.png') !!});background-position:top center;background-size:contain;">
     </div>
     <!--/.bg-holder-->
@@ -63,6 +42,5 @@
       </div>
     </div>
   </section>
-</main>
 
 @endsection
